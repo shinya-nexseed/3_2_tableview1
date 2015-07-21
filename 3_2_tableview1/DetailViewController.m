@@ -7,8 +7,11 @@
 //
 
 #import "DetailViewController.h"
+#import "AppDelegate.h"
 
-@interface DetailViewController ()
+@interface DetailViewController () {
+    AppDelegate *_appDelegate;
+}
 
 @end
 
@@ -17,6 +20,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    _appDelegate = [[UIApplication sharedApplication] delegate];
+    
+    self.title = _appDelegate.memberName;
+    
+    NSLog(@"%@",_appDelegate.memberImage);
+    self.profileImageView.image = [UIImage imageNamed:_appDelegate.memberImage];
 }
 
 - (void)didReceiveMemoryWarning {

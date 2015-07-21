@@ -13,10 +13,16 @@
 @end
 
 @implementation AppDelegate
+@synthesize memberName;
+//@synthesize ary;
+@synthesize memberImage;
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    memberName = @"";
+    memberImage = @"";
+//    ary = @[];
     return YES;
 }
 

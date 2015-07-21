@@ -7,10 +7,12 @@
 //
 
 #import "ViewController.h"
+#import "AppDelegate.h"
 
 @interface ViewController () {
     NSArray *_members;
     NSArray *_memberImages;
+    AppDelegate *_appDelegate;
 }
 
 @end
@@ -22,6 +24,8 @@
     // Do any additional setup after loading the view, typically from a nib.
     self.myTableView.delegate = self;
     self.myTableView.dataSource = self;
+    
+    _appDelegate = [[UIApplication sharedApplication] delegate];
     
     _members = @[@"Marina",@"Takuya",@"Tomo",@"Tetsuya",@"Yoshiro",@"Shinya"];
     
@@ -53,8 +57,18 @@
     nameLabel.text = _members[indexPath.row];
     
     profileImageView.image = [UIImage imageNamed:_memberImages[indexPath.row]];
+    // 画像を丸くするためのコード
+    profileImageView.clipsToBounds = YES;
+    profileImageView.layer.cornerRadius = 22.0f;
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"タップ");
+    // AppDelegateのmemberNameに値を渡します。
+    _appDelegate.memberName = _members[indexPath.row];
+    _appDelegate.memberImage = _memberImages[indexPath.row];
 }
 
 

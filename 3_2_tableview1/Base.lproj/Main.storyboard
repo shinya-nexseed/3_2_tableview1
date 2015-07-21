@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="60" id="rel-Cf-isv">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" rowHeight="60" id="rel-Cf-isv">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rel-Cf-isv" id="ePw-Q9-zoG">
@@ -37,6 +37,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="VsA-5P-8pv" kind="push" id="aoD-Fo-4gi"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -53,10 +56,10 @@
             </objects>
             <point key="canvasLocation" x="1191.5" y="320.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="X22-D5-An7">
             <objects>
-                <viewController id="VsA-5P-8pv" sceneMemberID="viewController">
+                <viewController id="VsA-5P-8pv" customClass="DetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Kcb-9V-Il4"/>
                         <viewControllerLayoutGuide type="bottom" id="Ad3-Ng-O6t"/>
@@ -64,9 +67,18 @@
                     <view key="view" contentMode="scaleToFill" id="RYp-1X-Fmz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j8z-QT-oyh">
+                                <rect key="frame" x="87" y="125" width="200" height="200"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="B5E-jg-l47"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="profileImageView" destination="j8z-QT-oyh" id="NmZ-Qm-QjS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EKQ-R2-9K0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
